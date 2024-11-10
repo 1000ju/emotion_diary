@@ -41,9 +41,9 @@ function reducer(state, action) {
       break;
     }
     case "UPDATE": {
-      nextState = state.map((item) => {
-        String(item.id) === String(action.id) ? action.data : item;
-      });
+      nextState = state.map((item) =>
+        String(item.id) === String(action.id) ? action.data : item
+      );
       break;
     }
     case "DELETE": {
