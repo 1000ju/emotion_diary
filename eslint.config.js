@@ -36,6 +36,7 @@ export default [
       "no-unused-vars": "off",
       "react/prop-types": "off",
       "react-refresh/only-export-components": "off",
+      "intreact-hooks/exhaustive-deps": "off",
     },
   },
 ];

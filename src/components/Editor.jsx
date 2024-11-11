@@ -16,6 +16,7 @@ const Editor = ({ initData, onSubmit }) => {
     content: "",
   });
 
+  // 얘 뭐하는 기능이지??? -> Edit에서 저장된 기록 불러오기 기능
   useEffect(() => {
     if (initData) {
       setInput({
@@ -26,6 +27,8 @@ const Editor = ({ initData, onSubmit }) => {
   }, [initData]);
 
   const onChangeInput = (e) => {
+    //Date, emotion, content 입력을 받는 이벤트 핸들러
+    //name이 있는 이유는 어떤 이벤트가 발생했는지 알기 위해서 (input태그에 name으로 등록해둠)
     let name = e.target.name;
     let value = e.target.value;
     if (name === "createdDate") value = new Date(value);
@@ -33,6 +36,7 @@ const Editor = ({ initData, onSubmit }) => {
     setInput({
       ...input,
       [name]: value,
+      //name === "createdDate"
     });
   };
 
@@ -47,6 +51,7 @@ const Editor = ({ initData, onSubmit }) => {
           name="createdDate"
           onChange={onChangeInput}
           value={getStringedDate(input.createdDate)}
+          //input.createdDate의 초기값이 오늘 날짜
           type="date"
         ></input>
       </section>
@@ -61,12 +66,15 @@ const Editor = ({ initData, onSubmit }) => {
                   target: {
                     name: "emotionId",
                     value: item.emotionId,
+                    //why 왜 target으로 묶어서 계산??
                   },
                 })
               }
+              //EmotionItem은 button, input이 아니라 컴포넌트를 나열해둔 것이기 때문에 의도적으로 이벤트를 발생시켜야 함
               key={item.emotionId}
               {...item}
               isSelected={item.emotionId === input.emotionId}
+              //emotion바뀌는 코드 원리 이해가 조금 부족
             />
           ))}
         </div>
@@ -82,14 +90,14 @@ const Editor = ({ initData, onSubmit }) => {
         />
       </section>
 
-      <seciotn className="button_section">
+      <section className="button_section">
         <Button text={"취소하기"} type={Button} onClick={() => nav(-1)} />
         <Button
           text={"작업완료"}
           type={"POSITIVE"}
           onClick={onClickSumbitButton}
         />
-      </seciotn>
+      </section>
     </div>
   );
 };

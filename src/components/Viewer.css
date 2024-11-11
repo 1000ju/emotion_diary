@@ -52,5 +52,7 @@
   text-align: left;
   font-size: 20px;
   font-weight: 400;
+  /* 조금 굵게 */
   line-height: 2.5;
+  /* 문장 한 줄의 위아래 간격을 2.5로 늘림  */
 }

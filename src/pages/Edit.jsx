@@ -31,9 +31,7 @@ const Edit = () => {
         input.emotionId,
         input.content
       );
-      console.log("업데이트");
     }
-
     nav("/", { replace: true });
   };
 

@@ -41,8 +41,10 @@ function reducer(state, action) {
       break;
     }
     case "UPDATE": {
-      nextState = state.map((item) =>
-        String(item.id) === String(action.id) ? action.data : item
+      nextState = state.map(
+        (item) =>
+          String(item.id) === String(action.data.id) ? action.data : item
+        //일치하는 요소가 있다면, 받아온 객체 데이터로 업데이트(집어넣기) action.data.id
       );
       break;
     }
@@ -59,19 +61,23 @@ function reducer(state, action) {
 
 export const DiaryStateContext = createContext();
 export const DiaryDispatchContext = createContext();
+//공급하는 context이지만, 다른 컴포넌트에서 쓰려면 export해줘야함
+
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [data, dispatch] = useReducer(reducer, []);
   const idRef = useRef(0);
 
-  //localStorage에 보관된 정보를 객체로 받아오는 함수
+  //localStorage에 보관된 정보를 객체로 받아오는 함수 ****** 이거 잘 해석해야함!!!!!
   useEffect(() => {
     const storedData = localStorage.getItem("diary");
     if (!storedData) {
+      setIsLoading(false);
       return;
     }
     const parsedData = JSON.parse(storedData);
     if (!Array.isArray(parsedData)) {
+      //배열인지 확인
       setIsLoading(false);
       return;
     }
@@ -123,6 +129,8 @@ function App() {
 
   if (isLoading) {
     return <div>데이터 로딩중입니다 ...</div>;
+    //local storage에서 배열을 받아오기 전에 data state로 페이지를 렌더링 하는 경우가 발생 -> 빈배열이라서 오류.
+    //데이터를 받아오기 전까지 "데이터 로딩중입니다 ..." local storage에서 배열을 받아오면 isLoading을 false로 만들고 페이지 랜더링 시작 -> 해결
   }
   return (
     <>

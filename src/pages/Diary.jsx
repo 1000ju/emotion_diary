@@ -16,6 +16,7 @@ const Diary = () => {
   const curDiaryItem = useDiary(params.id);
   if (!curDiaryItem) {
     return <div>데이터 로딩중</div>;
+    //curDiaryItem(반환값)이 undifined일 수 있기 때문문
   }
   const { createdDate, emotionId, content } = curDiaryItem;
   const title = getStringedDate(new Date(createdDate));

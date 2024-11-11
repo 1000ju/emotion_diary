@@ -2,7 +2,7 @@
   display: flex;
   gap: 15px;
   justify-content: space-between;
-
+  /* 자식 요소들 간격을 최대한 뛰우는 역할 */
   padding: 15px 0px;
   border-bottom: 1px solid rgb(236, 236, 236);
 }
