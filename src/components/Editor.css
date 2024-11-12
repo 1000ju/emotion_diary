@@ -14,6 +14,7 @@ textarea {
   border-radius: 5px;
   font-size: 20px;
   padding: 10px 20px;
+  /* 상하 좌우 */
 }
 
 .Editor > section > textarea {
@@ -22,6 +23,7 @@ textarea {
   min-height: 200px;
   resize: vertical;
   box-sizing: border-box;
+  /* width값을 설정하면 border+padding까지 크기에 포함하는 설정 */
 }
 
 .Editor .emotion_section .emotion_list_wrapper {

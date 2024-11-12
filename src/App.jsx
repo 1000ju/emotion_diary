@@ -72,13 +72,14 @@ function App() {
   useEffect(() => {
     const storedData = localStorage.getItem("diary");
     if (!storedData) {
-      setIsLoading(false);
+      setIsLoading(false); //초기값이 없는 경우
       return;
     }
     const parsedData = JSON.parse(storedData);
+    // 객체 리스트인데, 문자열 -> 리스트 변환만 해줘도 괜찮은가???
     if (!Array.isArray(parsedData)) {
-      //배열인지 확인
-      setIsLoading(false);
+      //리스트인지 확인
+      setIsLoading(false); //초기값이 없는 경우
       return;
     }
     let maxId = 0;
@@ -92,7 +93,7 @@ function App() {
       type: "INIT",
       data: parsedData,
     });
-    setIsLoading(false);
+    setIsLoading(false); //초기값이 있는 경우
   }, []);
 
   //기본 일기 추가

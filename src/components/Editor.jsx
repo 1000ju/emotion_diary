@@ -12,6 +12,7 @@ const Editor = ({ initData, onSubmit }) => {
   const nav = useNavigate();
   const [input, setInput] = useState({
     createdDate: new Date(),
+    // 애는 왜 getTime() 안씀..?
     emotionId: 3,
     content: "",
   });
@@ -66,7 +67,7 @@ const Editor = ({ initData, onSubmit }) => {
                   target: {
                     name: "emotionId",
                     value: item.emotionId,
-                    //why 왜 target으로 묶어서 계산??
+                    //why 왜 target으로 묶어서 계산?? -> 이벤트 객체의 e.target에 name, value를 저장
                   },
                 })
               }
@@ -74,7 +75,7 @@ const Editor = ({ initData, onSubmit }) => {
               key={item.emotionId}
               {...item}
               isSelected={item.emotionId === input.emotionId}
-              //emotion바뀌는 코드 원리 이해가 조금 부족
+              //isSelected가 true면 우짤라고? 그냥 해당 emotionId의 css가 바뀌게 Emtoionitem에서 삼항연산자로 설정되어 있음
             />
           ))}
         </div>
