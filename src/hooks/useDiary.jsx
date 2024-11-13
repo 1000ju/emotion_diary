@@ -18,7 +18,8 @@ const useDiary = (id) => {
     }
     setCurDiaryItem(currentDiaryItem);
   }, [id, data]);
-  // currentDiaryItem을 쓰면 되지 않나?? 왜 굳이 setCurDiaryItem을 사용해야하는 거지??? -> deps의 변화를 통해 콜백함수를 다시 실행할 수 있기 때문
+  // currentDiaryItem을 쓰면 되지 않나?? 왜 굳이 setCurDiaryItem을 사용해야하는 거지???
+  // useEffect를 사용하는 이유 -> deps의 변화를 통해 콜백함수를 다시 실행할 수 있기 때문
 
   return curDiaryItem;
 };

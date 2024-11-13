@@ -16,7 +16,8 @@ const Diary = () => {
   const curDiaryItem = useDiary(params.id);
   if (!curDiaryItem) {
     return <div>데이터 로딩중</div>;
-    //curDiaryItem(반환값)이 undifined일 수 있기 때문문
+    //curDiaryItem(반환값)이 undifined일 수 있기 때문
+    //근데 하려면, 초기값이 있는 Edit에서도 로딩 기능을 넣어줘야하는거 아닌감??
   }
   const { createdDate, emotionId, content } = curDiaryItem;
   const title = getStringedDate(new Date(createdDate));

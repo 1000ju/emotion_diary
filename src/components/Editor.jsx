@@ -23,6 +23,7 @@ const Editor = ({ initData, onSubmit }) => {
       setInput({
         ...initData,
         createdDate: new Date(Number(initData.createdDate)),
+        //임마도 getTime() 안쓰네... 저장할 때는 getTime()쓰는거 아니었나. 했다 안했다 하네...
       });
     }
   }, [initData]);

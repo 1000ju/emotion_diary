@@ -1,6 +1,7 @@
 .Editor > section {
   margin-bottom: 40px;
 }
+/* header랑 오늘의 날짜 윗부분의 간격은 어디서 설정된거지? */
 
 .Editor > section > h4 {
   font-size: 22px;

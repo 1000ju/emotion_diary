@@ -6,6 +6,7 @@
   padding: 10px 20px;
   font-size: 18px;
   white-space: nowrap;
+  /* 줄바꿈 하지 않음 */
 }
 
 .Button_POSITIVE {

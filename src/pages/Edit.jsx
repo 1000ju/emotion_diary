@@ -27,6 +27,7 @@ const Edit = () => {
     if (window.confirm("일기를 정말 수정할까요?")) {
       onUpdate(
         params.id,
+        //params.id는 Editor컴포넌트에 있는 값, props로 담아서 넘겨줬기 때문에, 이미 값이 담긴채로 전달이 됨...? 즉, 애초에 props로 전달할 때 값이 담겨서 전달이 됨으로 params.id가 어느 컴포넌트에 있던지 상관이 없음. 왜냐 이미 값이 담겨서 전달이 되었으니까..
         input.createdDate.getTime(),
         input.emotionId,
         input.content

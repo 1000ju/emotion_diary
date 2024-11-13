@@ -77,6 +77,7 @@ function App() {
     }
     const parsedData = JSON.parse(storedData);
     // 객체 리스트인데, 문자열 -> 리스트 변환만 해줘도 괜찮은가???
+    // => JSON.parse JSON문자열을 분석하여 값이나 객체를 생성
     if (!Array.isArray(parsedData)) {
       //리스트인지 확인
       setIsLoading(false); //초기값이 없는 경우
@@ -130,7 +131,7 @@ function App() {
 
   if (isLoading) {
     return <div>데이터 로딩중입니다 ...</div>;
-    //local storage에서 배열을 받아오기 전에 data state로 페이지를 렌더링 하는 경우가 발생 -> 빈배열이라서 오류.
+    //local storage에서 배열을 받아오기 전에 data state로 페이지를 렌더링 하는 경우가 발생 -> 빈배열이라서 오류. -> 내가 볼땐, useEffect보다 먼저 렌더링이 발생해서 그럼...
     //데이터를 받아오기 전까지 "데이터 로딩중입니다 ..." local storage에서 배열을 받아오면 isLoading을 false로 만들고 페이지 랜더링 시작 -> 해결
   }
   return (
